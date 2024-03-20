@@ -1,34 +1,16 @@
-﻿using Microsoft.VisualBasic;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace Bildschirmschoner
 {
     public partial class MainWindow : Window
     {
-        private DoubleAnimation double_animation_example        = new DoubleAnimation();
-        private DispatcherTimer gameRoutine                     = new DispatcherTimer();
-        private Random random                                   = new Random();
-
-        private static Dictionary<double,double> obj1_Pos       = new Dictionary<double,double>();
-        private static Dictionary<double, double> obj1_Middle   = new Dictionary<double,double>();
-        private static Dictionary<string, bool> moveDirUp       = new Dictionary<string, bool>();
-        private static Dictionary<string, bool> moveDirRight    = new Dictionary<string, bool>();
-
         public MainWindow()
         {
             InitializeComponent();
@@ -45,7 +27,16 @@ namespace Bildschirmschoner
 
             //obj1.BeginAnimation(WidthProperty, double_animation_example); // Animation function call for Target Property of obj "obj1" !
         }
-        
+
+        private DoubleAnimation double_animation_example = new DoubleAnimation();
+        private DispatcherTimer gameRoutine = new DispatcherTimer();
+        private Random random = new Random();
+
+        private static Dictionary<double, double> obj1_Pos = new Dictionary<double, double>();
+        private static Dictionary<double, double> obj1_Middle = new Dictionary<double, double>();
+        private static Dictionary<string, bool> moveDirUp = new Dictionary<string, bool>();
+        private static Dictionary<string, bool> moveDirRight = new Dictionary<string, bool>();
+
         private void GameRoutine(object sender, EventArgs e)
         {
             obj1_Pos.Clear();
